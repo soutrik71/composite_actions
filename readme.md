@@ -1,0 +1,1 @@
+This repo is meant to explain what are Composite Actions and how do they work
