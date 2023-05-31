@@ -1,0 +1,31 @@
+name: "Simple Hello World"
+author: "Soutrik"
+description: "Greet some one by default or by name"
+inputs:
+  whom_to_greet:
+    description: "Whome to greet"
+    required: true
+    default: "Human"
+
+  gender:
+    description: "Gender"
+    required: true
+outputs:
+  random-number_op:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-number }}
+
+runs:
+  using: composite
+  steps:
+    - run: echo Hello ${{ inputs.whom_to_greet }}.
+      shell: bash
+
+    - id: random-number-generator
+      run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
+      shell: bash
+
+    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
+    - run: goodbye.sh
+      shell: bash
