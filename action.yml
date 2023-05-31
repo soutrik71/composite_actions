@@ -31,7 +31,7 @@ runs:
     - run: echo $(PWD)
       shell: bash
 
-    - run: |
-        chmod +x ./goodbye.sh
-        goodbye.sh
-      shell: bash
+    # - run: |
+    #     chmod +x ./goodbye.sh
+    #     goodbye.sh
+    #   shell: bash
